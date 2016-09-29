@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8" />
+		<style type="text/css">
+		.entry{width:300px;height:300px;margin:20px auto;}
+		.entry #div_test{width: 147px; height: 40px; background-color: red; text-align: center; font-size: 20px; color: yellow; line-height: 40px;}
+		span{color:red; height: 20px; font-size: 12px}
+		a{text-decoration:none; }
+		</style>
+		<script type = "text/javascript" src = "js/tool.js"></script>
+		<script type = "text/javascript">
+		window.onload = function(){
+			//判断一下是否有缓存,如果有缓存的话,直接使用缓存的用户名和密码进行登录,无需重新输入
+			if(getCookie("username")){
+				alert("cookie已经缓存,登录成功");
+			}
+
+
+
+
+			$("#div_test").innerHTML = testStr(4);
+			$("#div_test").onclick = function(){
+				$("#div_test").innerHTML = testStr(4);
+			}
+
+
+			//用户名的验证
+			$("#username").onblur = function(){
+				var oValue = this.value.replace(/\s/g, "");
+				this.value = oValue;
+				$("#username_test").style.color = "red";
+				if(oValue.length > 18 || oValue.length < 6){
+					$("#username_test").innerHTML = "用户名的长度是6~18位";
+				}else if(/\d/.test(oValue[0])){
+					$("#username_test").innerHTML = "首字母不能为数字";
+				}else if(/\W+/.test(oValue)){
+					$("#username_test").innerHTML = "用户名只能由数字、字母和下划线组成";
+				}else{
+					$("#username_test").style.color = "green";
+					$("#username_test").innerHTML = "√";
+				}
+			}
+
+
+			//密码的验证
+			$("#password").onblur = function(){
+				$("#password_test").style.color = "red";
+				if(this.value.length > 18 || this.value.length < 6){
+					$("#password_test").innerHTML = "密码长度是6~18位";
+				}else{	
+					$("#password_test").style.color = "green";
+					//判断密码强度
+					if(/\d+/.test(this.value) && /[a-z]+/.test(this.value) && /[A-Z]+/.test(this.value)){
+						$("#password_test").innerHTML = "【强】";
+					}else if(/^\d+$/.test(this.value) || /^[a-z]$/.test(this.value) || /^[A-Z]$/.test(this.value)){
+						$("#password_test").innerHTML = "【弱】";
+					}else{
+						$("#password_test").innerHTML = "【一般】"
+					}
+				}
+			}
+
+			//验证验证码是否正确
+			$("#test_code").onblur = function(){
+				$("#code_test").style.color = "red";
+				if(this.value == $("#div_test").innerHTML){
+					$("#code_test").innerHTML = "验证码正确";
+					$("#code_test").style.color = "green";
+				}else{
+					$("#code_test").innerHTML = "验证码输入不正确";
+				}
+			}
+
+			$("#login").onclick = function(){
+				//1.进行cookie缓存,存储用户名密码
+				setCookie("username", $("#username").value, getDate(5));
+				setCookie("password", $("#password").value, getDate(5));
+				alert("登录成功");
+			}
+
+			$("#login1").onclick = function(){
+				removeCookie("username",$("#username").value);
+				removeCookie("password",$("#password").value);
+			}
+
+		}
+		</script>
+	</head>
+	<body>
+		<div class = "entry">
+			<input id = "username" placeholder = "用户名" /><span id = "username_test">测试用户名</span><br />
+			<input id = "password" type = "password" placeholder = "密码" /><span id = "password_test">测试密码</span><br />
+			<input id = "test_code" placeholder = "验证码" /><span id = "code_test">测试验证码</span><br />
+			<div id = "div_test"></div>
+			<br />
+			<button id = "login"><a href="index.html">登录</a></button>
+			<button id = "login1">清除cookie</button>
+		</div>
+	</body>
+</html>

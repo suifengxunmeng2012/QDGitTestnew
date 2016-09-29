@@ -1,0 +1,50 @@
+.zc360{height: 500px; margin-top: 20px; }
+.login{height: 460px; width: 550px;  margin: 0 auto;overflow: hidden;border:1px solid #ccc;}
+.login span{color: #ccc}
+.login .top{height: 56px; width: 550px ;float: left;}
+.login .right{width: 148px ;height: 428px;float: left;}
+.login .center{width: 94px ;height: 408px ; float: left;margin-top: 10px;}
+.login .mail{width: 278px; height: 62px; float: left;margin-top: 16px;}
+.login .mail input{width: 262px; height: 32px; float: left;}
+.login .mail span{font-size: 12px; float: left;}
+.login .user{width: 278px; height: 62px; float: left;}
+.login .user input{width: 262px; height: 32px; float: left;}
+.login .user span{font-size: 12px; float: left;}
+.login .pass{width: 278px; height: 62px; float: left;}
+.login .pass input{width: 262px; height: 32px; float: left;}
+.login .pass span{font-size: 12px; float: left;}
+
+.login .passR{width: 278px; height: 62px; float: left;}
+.login .passR input{width: 262px; height: 32px; float: left;}
+.login .passR span{font-size: 12px; float: left;}
+.login .co{width: 120px; height: 34px; float: left;}
+.login .co input{width: 120px; height: 34px; float: left;}
+
+.login #div_test{width: 140px; height: 40px;float: left;color: #eb1b43;height: 40px; line-height: 40px; text-align: center;}
+.login h3{float: left; font-size: 12px;color: #ccc}
+.login #login{float: left;width: 264px; height: 40px; background: url(../images/ms.jpg) no-repeat;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
